@@ -1,15 +1,12 @@
 import tkinter as tk
 from time import strftime
 
-# Create main window
 root = tk.Tk()
 root.title("Digital Clock")
 root.geometry("700x350")
 root.resizable(False, False)
 root.configure(bg="#121212")
 
-
-# Function to update time
 def time():
     # Get current time
     current_time = strftime("%H:%M:%S")
@@ -20,12 +17,9 @@ def time():
     time_label.config(text=current_time)
     am_pm_label.config(text=am_pm)
     date_label.config(text=current_date)
-
-    # Update every 1 second
+ 
     time_label.after(1000, time)
 
-
-# Heading
 title_label = tk.Label(
     root,
     text="DIGITAL CLOCK",
@@ -36,8 +30,6 @@ title_label = tk.Label(
 
 title_label.pack(pady=(25, 10))
 
-
-# Clock frame
 clock_frame = tk.Frame(
     root,
     bg="#1E1E1E",
@@ -47,8 +39,6 @@ clock_frame = tk.Frame(
 
 clock_frame.pack()
 
-
-# Time
 time_label = tk.Label(
     clock_frame,
     font=("Consolas", 60, "bold"),
@@ -58,8 +48,6 @@ time_label = tk.Label(
 
 time_label.pack()
 
-
-# AM / PM
 am_pm_label = tk.Label(
     clock_frame,
     font=("Arial", 16, "bold"),
@@ -69,8 +57,6 @@ am_pm_label = tk.Label(
 
 am_pm_label.pack()
 
-
-# Date
 date_label = tk.Label(
     root,
     font=("Arial", 18),
@@ -80,8 +66,6 @@ date_label = tk.Label(
 
 date_label.pack(pady=20)
 
-
-# Footer
 footer_label = tk.Label(
     root,
     text="⏱ Time updates every second",
@@ -92,9 +76,6 @@ footer_label = tk.Label(
 
 footer_label.pack()
 
-
-# Start clock
 time()
 
-# Run application
 root.mainloop()
